@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
+import { Toaster } from "@/components/ui/toaster";
 import localFont from "next/font/local";
 import { ReactNode } from "react";
 const ibmPlexSans = localFont({
@@ -31,6 +31,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         suppressHydrationWarning
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
