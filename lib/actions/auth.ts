@@ -38,7 +38,7 @@ export const signInCredentials = async (
   }
 };
 
-const signUp = async (params: AuthCredentials) => {
+export const signUp = async (params: AuthCredentials) => {
   const { email, password, fullName, universityId, universityCard } = params;
 
   // if check user already exists

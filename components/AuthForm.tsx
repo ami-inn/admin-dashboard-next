@@ -10,13 +10,12 @@ import {
   useForm,
   UseFormReturn,
 } from "react-hook-form";
-import { z, ZodType } from "zod";
+import { ZodType } from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -26,7 +25,8 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/constants";
 import ImageUpload from "./ImageUpload";
-
+import { toast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 interface Props<T> extends FieldValues {
   schema: ZodType<T>;
   defaultValues: T;
@@ -46,8 +46,25 @@ const AuthForm = <T extends FieldValues>({
     defaultValues: defaultValues as DefaultValues<T>,
   });
 
+  const router = useRouter()
+
   const handleSubmit: SubmitHandler<T> = async (data) => {
     console.log(data);
+    const res = await onSubmit(data);
+    if (res.success) {
+      // Redirect to dashboard
+      toast({
+        title: "Success",
+        description: isSignIn? "You have successfully signed in": "You have successfully signed up",
+      })
+        router.push('/')
+    }else{
+        toast({
+            title: "Error",
+            variant:'destructive',
+            description: isSignIn? "Invalid credentials signin": "An error occurred while signing up",
+        })
+    }
   };
 
   const isSignIn = type === "sign-in";
