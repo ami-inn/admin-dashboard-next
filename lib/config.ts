@@ -1,3 +1,4 @@
+import { url } from "inspector";
 
 
 const config = {
@@ -11,6 +12,10 @@ const config = {
             urlEndpoint: process.env.NEXT_PUBLIC_IMAGEKIT_URL!
         },
         databaseUrl: process.env.DATABASE_URL!,
+        upstash:{
+            redisUrl : process.env.UPSTASH_REDIS_URL!,
+            token: process.env.UPSTASH_REDIS_TOKEN!
+        }
 
 
     }
