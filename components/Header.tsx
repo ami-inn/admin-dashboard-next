@@ -38,7 +38,7 @@ const Header = ({session}:{session:Session}) => {
         </li>
         <li>
           <Link
-            href="/profile"
+            href="/my-profile"
           >
             <Avatar>
              
