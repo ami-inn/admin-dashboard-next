@@ -14,7 +14,9 @@ const config = {
         databaseUrl: process.env.DATABASE_URL!,
         upstash:{
             redisUrl : process.env.UPSTASH_REDIS_URL!,
-            token: process.env.UPSTASH_REDIS_TOKEN!
+            token: process.env.UPSTASH_REDIS_TOKEN!,
+            qstashUrl: process.env.UPSTASH_QSTASH_URL!,
+            qstashToken: process.env.UPSTASH_QSTASH_TOKEN!  
         }
 
 
