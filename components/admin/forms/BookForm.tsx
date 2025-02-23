@@ -15,13 +15,15 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useRouter } from "next/navigation";
-// import { bookSchema } from "@/lib/validations";
-import { Textarea } from "@/components/ui/textarea";
+import { bookSchema } from "@/lib/validations";
 import { Button } from "@/components/ui/button";
-import FileUpload from "@/components/FileUpload";
-import ColorPicker from "@/components/admin/ColorPicker";
-import { createBook } from "@/lib/admin/actions/book";
+import { Textarea
+
+ } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import FileUpload from "@/components/FileUpload";
+import ColorPicker from "../ColorPicker";
+import { createBook } from "@/lib/admin/actions/book";
 
 interface Props extends Partial<Book> {
   type?: "create" | "update";
@@ -30,40 +32,40 @@ interface Props extends Partial<Book> {
 const BookForm = ({ type, ...book }: Props) => {
   const router = useRouter();
 
-//   const form = useForm<z.infer<typeof bookSchema>>({
-//     resolver: zodResolver(bookSchema),
-//     defaultValues: {
-//       title: "",
-//       description: "",
-//       author: "",
-//       genre: "",
-//       rating: 1,
-//       totalCopies: 1,
-//       coverUrl: "",
-//       coverColor: "",
-//       videoUrl: "",
-//       summary: "",
-//     },
-//   });
+  const form = useForm<z.infer<typeof bookSchema>>({
+    resolver: zodResolver(bookSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      author: "",
+      genre: "",
+      rating: 1,
+      totalCopies: 1,
+      coverUrl: "",
+      coverColor: "",
+      videoUrl: "",
+      summary: "",
+    },
+  });
 
-//   const onSubmit = async (values: z.infer<typeof bookSchema>) => {
-//     const result = await createBook(values);
+  const onSubmit = async (values: z.infer<typeof bookSchema>) => {
+    const result = await createBook(values);
 
-//     if (result.success) {
-//       toast({
-//         title: "Success",
-//         description: "Book created successfully",
-//       });
+    if (result.success) {
+      toast({
+        title: "Success",
+        description: "Book created successfully",
+      });
 
-//       router.push(`/admin/books/${result.data.id}`);
-//     } else {
-//       toast({
-//         title: "Error",
-//         description: result.message,
-//         variant: "destructive",
-//       });
-//     }
-//   };
+      router.push(`/admin/books/${result.data.id}`);
+    } else {
+      toast({
+        title: "Error",
+        description: result.message,
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <Form {...form}>
