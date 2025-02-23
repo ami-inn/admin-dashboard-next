@@ -17,6 +17,11 @@ const config = {
             token: process.env.UPSTASH_REDIS_TOKEN!,
             qstashUrl: process.env.UPSTASH_QSTASH_URL!,
             qstashToken: process.env.UPSTASH_QSTASH_TOKEN!  
+        },
+        emailjs:{
+            serviceId: process.env.EMAIL_JS_SERVICE_ID!,
+            templateId: process.env.EMAIL_JS_TEMPLATE_ID!,
+            publicKey: process.env.EMAIL_JS_PUBLIC_KEY!
         }
 
 
