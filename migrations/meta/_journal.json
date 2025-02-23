@@ -8,6 +8,13 @@
       "when": 1740114059750,
       "tag": "0000_silent_big_bertha",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1740322904963,
+      "tag": "0001_many_tigra",
+      "breakpoints": true
     }
   ]
 }

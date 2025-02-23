@@ -1,6 +1,6 @@
 
 interface Book {
-    id:number;
+    id:string;
     title : string;
     author : string;
     genre : string;
@@ -13,6 +13,7 @@ interface Book {
     videoUrl : string;
     summary : string;
     isLoanedBook? : boolean;
+    userId?:string;
 
 }
 
